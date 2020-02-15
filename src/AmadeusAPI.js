@@ -1,7 +1,17 @@
 const axios = require('axios').default;
 //console.group('Hello World!');
+//https://test.api.amadeus.com/v1/shopping/flight-offers?origin=NYC&destination=MAD&departureDate=2020-10-01&max=2
+var config = { url: '/shopping/flight-offers',
+              baseURL: 'https://test.api.amadeus.com/v1',
+              headers: {'Authorization' : 'Bearer VLlvAtGUYIOgfQn1vV5G5pSUdcTe'},
+              params: {
+                origin: "NYC",
+                destination: "MAD",
+                departureDate: "2020-10-01"
+              }
+             };
 
-axios.get('https://test.api.amadeus.com/v1/shopping/flight-offers?origin=BOS&destination=MAD&departureDate=2020-11-25&adults=1&nonStop=false&max=50')
+axios(config)
   .then(function (response) {
     // handle success
     console.log(response);
