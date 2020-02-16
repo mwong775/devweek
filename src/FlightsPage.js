@@ -1,12 +1,12 @@
 import React from "react";
 import "./App.css";
 
-function Flights() {
+function FlightsPage() {
   return (
     <div>
-      <header>Flights Page</header>
+      <h1>Flights Page</h1>
     </div>
   );
 }
 
-export default Flights;
+export default FlightsPage;
