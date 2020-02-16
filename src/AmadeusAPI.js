@@ -2,16 +2,18 @@
 const axios = require('axios').default;
 //console.group('Hello World!');
 //https://test.api.amadeus.com/v1/shopping/flight-offers?origin=NYC&destination=MAD&departureDate=2020-10-01&max=2
-var config = { url: '/shopping/flight-offers',
+var config = { 
+              url: '/shopping/flight-offers',
               baseURL: 'https://test.api.amadeus.com/v1',
-              headers: {'Authorization' : 'Bearer 1nhl3rHnXglLx0Vm0b6oTkZri7xL'},
+              headers: {'Authorization' : 'Bearer YCGxOxfsfPTuAWyznp36gFb8eBGO'},
               params: {
                 origin: "NYC",
                 destination: "MAD",
-                departureDate: "2020-10-01"
+                departureDate: "2020-10-01",
+                max: "10"
               }
              };
-             
+
 document.write("Button pressed");
 function getFlights(config) {
   axios(config)

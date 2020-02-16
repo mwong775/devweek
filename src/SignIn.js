@@ -127,12 +127,14 @@ function componentDidMount() {
   document.write("Button pressed\n");
   var config = { url: '/shopping/flight-offers',
               baseURL: 'https://test.api.amadeus.com/v1',
-              headers: {'Authorization' : 'Bearer kOUAOMGPI2EVEB6I1QncyNBx1mwj'},
+              headers: {'Authorization' : 'Bearer YCGxOxfsfPTuAWyznp36gFb8eBGO'},
               params: {
                 origin: "NYC",
                 destination: "MAD",
-                departureDate: "2020-10-01"
+                departureDate: "2020-10-01",
+                max: "3"
               }
+              
              };
   getFlights(config)
 }
