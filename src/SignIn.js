@@ -13,6 +13,7 @@ import Typography from '@material-ui/core/Typography';
 import { makeStyles } from '@material-ui/core/styles';
 import Container from '@material-ui/core/Container';
 
+
 function Copyright() {
   return (
     <Typography variant="body2" color="textSecondary" align="center">
@@ -92,6 +93,7 @@ export default function SignIn() {
             variant="contained"
             color="primary"
             className={classes.submit}
+            onClick={componentDidMount}
           >
             Sign In
           </Button>
@@ -114,4 +116,40 @@ export default function SignIn() {
       </Box>
     </Container>
   );
+}
+
+const axios = require('axios').default;
+//console.group('Hello World!');
+//https://test.api.amadeus.com/v1/shopping/flight-offers?origin=NYC&destination=MAD&departureDate=2020-10-01&max=2
+
+
+function componentDidMount() {
+  document.write("Button pressed\n");
+  var config = { url: '/shopping/flight-offers',
+              baseURL: 'https://test.api.amadeus.com/v1',
+              headers: {'Authorization' : 'Bearer YCGxOxfsfPTuAWyznp36gFb8eBGO'},
+              params: {
+                origin: "NYC",
+                destination: "MAD",
+                departureDate: "2020-10-01",
+                max: "3"
+              }
+              
+             };
+  getFlights(config)
+}
+
+function getFlights(config) {
+  axios(config)
+  .then(function (response) {
+    // handle success
+    document.write(JSON.stringify(response));
+  })
+  .catch(function (error) {
+    // handle error
+    document.write(error);
+  })
+  .finally(function () {
+    // always executed
+  });
 }
