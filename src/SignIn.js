@@ -13,6 +13,7 @@ import Typography from '@material-ui/core/Typography';
 import { makeStyles } from '@material-ui/core/styles';
 import Container from '@material-ui/core/Container';
 
+
 function Copyright() {
   return (
     <Typography variant="body2" color="textSecondary" align="center">
@@ -92,6 +93,7 @@ export default function SignIn() {
             variant="contained"
             color="primary"
             className={classes.submit}
+            onClick={componentDidMount}
           >
             Sign In
           </Button>
@@ -122,9 +124,10 @@ const axios = require('axios').default;
 
 
 function componentDidMount() {
+  document.write("Button pressed\n");
   var config = { url: '/shopping/flight-offers',
               baseURL: 'https://test.api.amadeus.com/v1',
-              headers: {'Authorization' : 'Bearer VLlvAtGUYIOgfQn1vV5G5pSUdcTe'},
+              headers: {'Authorization' : 'Bearer kOUAOMGPI2EVEB6I1QncyNBx1mwj'},
               params: {
                 origin: "NYC",
                 destination: "MAD",
@@ -138,11 +141,11 @@ function getFlights(config) {
   axios(config)
   .then(function (response) {
     // handle success
-    console.log(response);
+    document.write(JSON.stringify(response));
   })
   .catch(function (error) {
     // handle error
-    console.log(error);
+    document.write(error);
   })
   .finally(function () {
     // always executed
