@@ -1,17 +1,15 @@
 import React from "react";
 import "./App.css";
-import SignIn from "./SignIn";
-import Flights from "./Flights";
+import SignInPage from "./SignInPage";
+import FlightsPage from "./FlightsPage";
 import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
 
 function App() {
   return (
     <Router>
       <div className="App">
-        <header className="App-header">
-          <SignIn />
-        </header>
-        <Route path="/flights" component={Flights} />
+        <Route path="/" component={SignInPage} />
+        <Route path="/flights" component={FlightsPage} />
       </div>
     </Router>
   );
